@@ -7,7 +7,8 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
+    <!--Если не нужно, чтобы был такой биндинг-->
+    <!-- то нужно прописать правило tools:viewBindingIgnore="true"-->
 
     <TextView
         android:id="@+id/textView"
@@ -22,7 +23,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/startButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -34,14 +35,15 @@
         tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="437dp" />
 
-<!--    <com.google.android.gms.ads.AdView-->
-<!--        android:id="@+id/adView"-->
-<!--        android:layout_width="411dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:adSize="BANNER"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:ignore="MissingClass,MissingConstraints"></com.google.android.gms.ads.AdView>-->
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingClass,MissingConstraints"/>
 
 </LinearLayout>

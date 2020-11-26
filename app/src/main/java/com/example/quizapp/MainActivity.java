@@ -1,26 +1,28 @@
 package com.example.quizapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.quizapp.databinding.ActivityMainBinding;
+import com.google.android.gms.ads.AdRequest;
 
 public class MainActivity extends AppCompatActivity {
-private Button startbtn;
+private ActivityMainBinding binding;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //Для использования этого биндинга в каждом активити или фрагменте нужно сначала
+        //так его инициализировать
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        //А в этот метод передать корень
+        setContentView(binding.getRoot());
 
-        startbtn = findViewById(R.id.button);
-        startbtn.setOnClickListener(new View.OnClickListener() {
+        //ОБращаться можно к любой вьюшке по ее ID
+        binding.startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -29,5 +31,8 @@ private Button startbtn;
 
             }
         });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        binding.adView.loadAd(adRequest);
     }}
 
